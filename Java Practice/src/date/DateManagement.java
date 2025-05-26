@@ -146,6 +146,7 @@ public class DateManagement {
         sdf = new SimpleDateFormat(format);
         System.out.println("Current numeric month : " + sdf.format(d));
 //**********************************************************************
+
 //**********************************************************************
 
         System.out.println("\n******Different Date time format patterns******");
