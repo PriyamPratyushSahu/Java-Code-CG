@@ -204,40 +204,40 @@ public class DateManagement {
 ****** Using SimpleDateFormat and Date Class *******
 Current Day name in the week: Wed
 Era designator: AD
-Current Year: 2023
-Current Month: 2
-Current Week in the year: 6
-Current Week in the month: 2
-Current day in the year: 39
-Current day in the month: 8
-Current day of the week in month: 2
+Current Year: 2025
+Current Month: 5
+Current Week in the year: 22
+Current Week in the month: 5
+Current day in the year: 148
+Current day in the month: 28
+Current day of the week in month: 4
 Current day number of week : 3
-Current time inAm or PM: pm
-Current hour : 17
-Current hour : 17
-Current hour in am/pm for 12-hour format (0-11) : 5
-Current hour in am/pm for 12-hour format (1-12) : 5
-Current minute in the hour : 16
-Current second in the minute : 11
-Current millisecond in the minute : 299
+Current time in AM or PM: am
+Current hour : 7
+Current hour : 7
+Current hour in am/pm for 12-hour format (0-11) : 7
+Current hour in AM/PM for 12-hour format (1-12) : 7
+Current minute in the hour : 43
+Current second in the minute : 24
+Current millisecond in the minute : 807
 Current timezone : IST
 Current timezone offset in hours (RFC pattern) : +0530
 Current timezone offset in ISO format : +05
-Current full month : February
-Current abbreviated month : Feb
-Current numeric month : 02
+Current full month : May
+Current abbreviated month : May
+Current numeric month : 05
 
 ******Different Date time format patterns******
-Current date Current time: Wed Feb 08 17:16:11 IST 2023
-MM/dd/yyyy : 02/08/2023
-dd-M-yyyy hh:mm:ss : 08-2-2023 05:16:11
-dd MMMM yyyy : 08 February 2023
-dd MMMM yyyy zzzz : 08 February 2023 India Standard Time
-E, dd MMM yyyy HH:mm:ss z : Wed, 08 Feb 2023 17:16:11 IST
+Current date Current time: Wed May 28 07:43:24 IST 2025
+MM/dd/yyyy : 05/28/2025
+dd-M-yyyy hh:mm:ss : 28-5-2025 07:43:24
+dd MMMM yyyy : 28 May 2025
+dd MMMM yyyy zzzz : 28 May 2025 India Standard Time
+E, dd MMM yyyy HH:mm:ss z : Wed, 28 May 2025 07:43:24 IST
 
 ****** Using LocalDate and Month Class ******
-Current date: 2023-02-08
-Current day: 8
-Current month: FEBRUARY
-Current month: 2023
+Current date: 2025-05-28
+Current day: 28
+Current month: MAY
+Current month: 2025
  */
