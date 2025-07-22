@@ -15,7 +15,7 @@ import java.util.Date;
 
 public class DateManagement {
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
 
         String format;
         SimpleDateFormat sdf;
@@ -184,17 +184,41 @@ public class DateManagement {
         System.out.println("\n****** Using LocalDate and Month Class ******");
 
         //Getting the current date value
-        LocalDate currentdate = LocalDate.now();
-        System.out.println("Current date: " + currentdate);
-        //Getting the current day
-        int currentDay = currentdate.getDayOfMonth();
-        System.out.println("Current day: " + currentDay);
-        //Getting the current month
-        Month currentMonth = currentdate.getMonth();
-        System.out.println("Current month: " + currentMonth);
-        //getting the current year
-        int currentYear = currentdate.getYear();
-        System.out.println("Current month: " + currentYear);
+        LocalDate currentDate = LocalDate.now();
+        Month currentMonth = currentDate.getMonth();
+
+        System.out.println("Current date: " + currentDate);
+        System.out.println("Year: " + currentDate.getYear());
+        System.out.println("Month (enum): " + currentDate.getMonth());
+        System.out.println("Month (numeric): " + currentDate.getMonthValue());
+        System.out.println("Day of Month: " + currentDate.getDayOfMonth());
+        System.out.println("Day of Week: " + currentDate.getDayOfWeek());
+        System.out.println("Day of Year: " + currentDate.getDayOfYear());
+        System.out.println("Length of Month: " + currentDate.lengthOfMonth());
+        System.out.println("Length of Year: " + currentDate.lengthOfYear());
+        System.out.println("Is Leap Year: " + currentDate.isLeapYear());
+
+        System.out.println("\nDate after 5 days: " + currentDate.plusDays(5));
+        System.out.println("Date before 5 days: " + currentDate.minusDays(5));
+        System.out.println("With Day of Month set to 1: " + currentDate.withDayOfMonth(1));
+        System.out.println("With Month set to January: " + currentDate.withMonth(1));
+
+        //LocalDate anotherDate = LocalDate.of(2025, 12, 25);
+        LocalDate anotherDate = LocalDate.of(2025, 9, 25);
+        System.out.println("\nAnother Date: " + anotherDate);
+        System.out.println("Is current date before another date? " + currentDate.isBefore(anotherDate));
+        System.out.println("Is current date after another date? " + currentDate.isAfter(anotherDate));
+        System.out.println("Compare current date to another date: " + currentDate.compareTo(anotherDate));
+
+
+        // Month class methods
+        System.out.println("Current date: " + currentDate);
+        System.out.println("\nMonth Enum: " + currentMonth);
+        System.out.println("Month Value: " + currentMonth.getValue());
+        System.out.println("Days in Month (non-leap): " + currentMonth.length(false));
+        System.out.println("Days in Month (leap): " + currentMonth.length(true));
+        System.out.println("Next Month: " + currentMonth.plus(1)); //currentMonth.minus(-1)
+        System.out.println("Previous Month: " + currentMonth.minus(1)); //currentMonth.plus(-1)
 
     }
 }
@@ -241,53 +265,95 @@ E, dd MMM yyyy HH:mm:ss z	Full date-time with day and zone	Tue, 22 Jul 2025 08:3
 
 /* ********* Using LocalDate and Month Class *********
 
-Method	            Description	        Example Output
-------------------------------------------------------|
-LocalDate.now()	    Current date	    2025-07-22
-getDayOfMonth()	    Day of the month	22
-getMonth()	        Month enum	        JULY
-getYear()	        Year	            2025
+Format	            Meaning	                                        Example Output
+----------------------------------------------------------------------------------|
+LocalDate.now()	    Gets current system date	                    2025-07-22
+getYear()	        Gets the year	                                2025
+getMonth()	        Gets the month as enum	                        JULY
+getMonthValue()	    Gets the month as number	                    7
+getDayOfMonth()	    Gets the day of the month	                    22
+getDayOfWeek()	    Gets the day of the week	                    TUESDAY
+getDayOfYear()	    Gets the day number in the year	                203
+lengthOfMonth()	    Number of days in the month	                    31
+lengthOfYear()	    Number of days in the year	                    365
+isLeapYear()	    Checks if the year is a leap year	            false
+plusDays(n)	        Adds n days to the date	                        2025-07-27
+minusDays(n)	    Subtracts n days from the date	                2025-07-17
+withDayOfMonth(n)	Sets the day of the month	                    2025-07-01
+withMonth(n)	    Sets the month	                                2025-01-22
+isBefore(date)	    Checks if current date is before another date	true
+isAfter(date)	    Checks if current date is after another date	false
+compareTo(date)	    Compares current date to another date	        -65
+Month.getValue()	Gets numeric value of the month	                7
+Month.length(false)	Days in month (non-leap year)	                31
+Month.length(true)	Days in month (leap year)	                    31
+Month.plus(n)	    Gets next month	                                AUGUST
+Month.minus(n)	    Gets previous month	                            JUNE
 */
 
 /*
 *********************************** OUTPUT ***********************************
 ****** Using SimpleDateFormat and Date Class *******
-Current Day name in the week: Wed
+Current Day name in the week: Tue
 Era designator: AD
 Current Year: 2025
-Current Month: 5
-Current Week in the year: 22
-Current Week in the month: 5
-Current day in the year: 148
-Current day in the month: 28
+Current Month: 7
+Current Week in the year: 30
+Current Week in the month: 4
+Current day in the year: 203
+Current day in the month: 22
 Current day of the week in month: 4
-Current day number of week : 3
+Current day number of week : 2
 Current time in AM or PM: am
-Current hour : 7
-Current hour : 7
-Current hour in am/pm for 12-hour format (0-11) : 7
-Current hour in AM/PM for 12-hour format (1-12) : 7
-Current minute in the hour : 43
+Current hour : 10
+Current hour : 10
+Current hour in AM/PM for 12-hour format (0-11) : 10
+Current hour in AM/PM for 12-hour format (1-12) : 10
+Current minute in the hour : 13
 Current second in the minute : 24
-Current millisecond in the minute : 807
+Current millisecond in the minute : 748
 Current timezone : IST
 Current timezone offset in hours (RFC pattern) : +0530
 Current timezone offset in ISO format : +05
-Current full month : May
-Current abbreviated month : May
-Current numeric month : 05
+Current full month : July
+Current abbreviated month : Jul
+Current numeric month : 07
 
 ******Different Date time format patterns******
-Current date Current time: Wed May 28 07:43:24 IST 2025
-MM/dd/yyyy : 05/28/2025
-dd-M-yyyy hh:mm:ss : 28-5-2025 07:43:24
-dd MMMM yyyy : 28 May 2025
-dd MMMM yyyy zzzz : 28 May 2025 India Standard Time
-E, dd MMM yyyy HH:mm:ss z : Wed, 28 May 2025 07:43:24 IST
+Current date Current time: Tue Jul 22 10:13:24 IST 2025
+MM/dd/yyyy : 07/22/2025
+dd-M-yyyy hh:mm:ss : 22-7-2025 10:13:24
+dd MMMM yyyy : 22 July 2025
+dd MMMM yyyy zzzz : 22 July 2025 India Standard Time
+E, dd MMM yyyy HH:mm:ss z : Tue, 22 Jul 2025 10:13:24 IST
 
 ****** Using LocalDate and Month Class ******
-Current date: 2025-05-28
-Current day: 28
-Current month: MAY
-Current month: 2025
+Current date: 2025-07-22
+Year: 2025
+Month (enum): JULY
+Month (numeric): 7
+Day of Month: 22
+Day of Week: TUESDAY
+Day of Year: 203
+Length of Month: 31
+Length of Year: 365
+Is Leap Year: false
+
+Date after 5 days: 2025-07-27
+Date before 5 days: 2025-07-17
+With Day of Month set to 1: 2025-07-01
+With Month set to January: 2025-01-22
+
+Another Date: 2025-09-25
+Is current date before another date? true
+Is current date after another date? false
+Compare current date to another date: -2
+Current date: 2025-07-22
+
+Month Enum: JULY
+Month Value: 7
+Days in Month (non-leap): 31
+Days in Month (leap): 31
+Next Month: AUGUST
+Previous Month: JUNE
  */

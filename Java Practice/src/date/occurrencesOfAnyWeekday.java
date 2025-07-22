@@ -1,23 +1,14 @@
 package date;
+
+import java.text.SimpleDateFormat;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.Scanner;
 
 public class occurrencesOfAnyWeekday {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
 
-        // Input year, month, and weekday
-        System.out.print("Enter year (e.g., 2025): ");
-        int year = scanner.nextInt();
-
-        System.out.print("Enter month (1-12): ");
-        int month = scanner.nextInt();
-
-        System.out.print("Enter weekday (e.g., MONDAY, TUESDAY): ");
-        String weekdayInput = scanner.next().toUpperCase();
-        DayOfWeek targetDay = DayOfWeek.valueOf(weekdayInput);
-
+    void displayWeekDays(int year, int month, DayOfWeek targetDay) {
         LocalDate date = LocalDate.of(year, month, 1);
         int count = 0;
 
@@ -28,6 +19,54 @@ public class occurrencesOfAnyWeekday {
                 System.out.println(count + " " + targetDay + ": " + date);
             }
             date = date.plusDays(1);
+        }
+    }
+
+    public static void main(String[] args) {
+
+        occurrencesOfAnyWeekday ow = new occurrencesOfAnyWeekday();
+        Scanner scanner = new Scanner(System.in);
+
+
+        int year;
+        int month;
+        DayOfWeek targetDay;
+        //Enter choice
+        System.out.print("Press 1 for custom day\nPress 2 for default day\nEnter your choice: ");
+        int ch = scanner.nextInt();
+        if (ch == 1) {
+            // Input year, month, and weekday
+            System.out.print("Enter year (e.g., 2025): ");
+            year = scanner.nextInt();
+
+            System.out.print("Enter month (1-12): ");
+            month = scanner.nextInt();
+
+            System.out.print("Enter weekday (e.g., MONDAY, TUESDAY): ");
+            String weekdayInput = scanner.next().toUpperCase();
+            targetDay = DayOfWeek.valueOf(weekdayInput);
+
+            ow.displayWeekDays(year,month,targetDay);
+
+        }
+        else if(ch == 2){
+            String format;
+            SimpleDateFormat sdf;
+            Date d = new Date();
+
+            format = "y";
+            sdf = new SimpleDateFormat(format);
+            year = Integer.parseInt(sdf.format(d));
+
+            format = "M";
+            sdf = new SimpleDateFormat(format);
+            month = Integer.parseInt(sdf.format(d));
+
+            LocalDate currentdate = LocalDate.now();
+            targetDay = currentdate.getDayOfWeek();
+            System.out.println(targetDay);
+
+            ow.displayWeekDays(year,month,targetDay);
         }
 
         scanner.close();
