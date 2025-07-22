@@ -1,0 +1,38 @@
+import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+public class Locators {
+
+	public static void main(String[] args) throws InterruptedException {
+
+		
+		System.setProperty("webdriver.chrome.driver","C:\\Users\\priyamps\\Downloads\\SELENIUM\\Drivers\\ChromeDriver\\chromedriver 108\\chromedriver.exe");
+		WebDriver driver =  new ChromeDriver();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
+	
+		driver.get("https://rahulshettyacademy.com/locatorspractice/");
+		
+	
+		System.out.println("Title: " + driver.getTitle());
+		System.out.println("URL: " + driver.getCurrentUrl());
+		
+		driver.findElement(By.id("inputUsername")).sendKeys("Priyam");
+		driver.findElement(By.name("inputPassword")).sendKeys("Priyam");
+		driver.findElement(By.className("signInBtn")).click();
+		
+		System.out.println("Error Message: "+ driver.findElement(By.cssSelector("p.error")).getText());
+		
+		//Forgot Password
+		
+		driver.findElement(By.linkText("Forgot your password?")).click();
+		
+//		driver.close();
+
+	}
+
+}
+ 
