@@ -198,6 +198,56 @@ public class DateManagement {
 
     }
 }
+/* ********* Using SimpleDateFormat and Date Class *********
+
+Format	    Meaning	                                    Example Output
+----------------------------------------------------------------------|
+E	        Day name in the week (short)	            Tue
+G	        Era designator	                            AD
+y	        Year (full)	                                2025
+M	        Month (1-12)	                            7
+w	        Week in year	                            30
+W	        Week in month	                            4
+D	        Day in year	                                203
+d	        Day in month	                            22
+F	        Day of week in month (e.g., 3rd Tuesday)	4
+u	        Day number of week (1 = Monday, 7 = Sunday)	2
+a	        AM/PM marker	                            AM
+H	        Hour in day (0–23)	                        8
+k	        Hour in day (1–24)	                        9
+K	        Hour in AM/PM (0–11)	                    8
+h	        Hour in AM/PM (1–12)	                    8
+m	        Minute in hour	                            37
+s	        Second in minute	                        21
+S	        Millisecond	                                123
+z	        Time zone name	                            IST
+Z	        Time zone offset (RFC 822)	                +0530
+X	        ISO 8601 time zone	                        +05
+MMMM	    Full month name	                            July
+MMM	        Abbreviated month name	                    Jul
+MM	        Numeric month with leading zero	            07
+*/
+
+/* ********* Different Date-Time Format Patterns *********
+
+Pattern	                    Description	                        Example Output
+------------------------------------------------------------------------------|
+MM/dd/yyyy	                US-style date	                    07/22/2025
+dd-M-yyyy hh:mm:ss	        Day-Month-Year with time	        22-7-2025 08:37:21
+dd MMMM yyyy	            Full month name	                    22 July 2025
+dd MMMM yyyy zzzz	        Full date with time zone	        22 July 2025 India Standard Time
+E, dd MMM yyyy HH:mm:ss z	Full date-time with day and zone	Tue, 22 Jul 2025 08:37:21 IST
+ */
+
+/* ********* Using LocalDate and Month Class *********
+
+Method	            Description	        Example Output
+------------------------------------------------------|
+LocalDate.now()	    Current date	    2025-07-22
+getDayOfMonth()	    Day of the month	22
+getMonth()	        Month enum	        JULY
+getYear()	        Year	            2025
+*/
 
 /*
 *********************************** OUTPUT ***********************************
