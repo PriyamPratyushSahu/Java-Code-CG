@@ -178,7 +178,7 @@ public class DateManagement {
         format = "E, dd MMM yyyy HH:mm:ss z";
         sdf = new SimpleDateFormat(format);
         System.out.println(format + " : " + sdf.format(d));
-//**********************************************************************
+
 // **********************************************************************
 
         System.out.println("\n****** Using LocalDate and Month Class ******");

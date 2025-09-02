@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Countdown Timer</title>
+  <style>
+    body {
+      background-color: #121212;
+      color: #ffffff;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 50px;
+    }
+
+    h1 {
+      font-size: 3em;
+      margin-bottom: 20px;
+    }
+
+    input, button {
+      font-size: 1.5em;
+      padding: 10px;
+      margin: 10px;
+      border: none;
+      border-radius: 5px;
+    }
+
+    input[type="datetime-local"] {
+      background-color: #ffffff;
+      color: #000000;
+    }
+
+    button {
+      background-color: #00bcd4;
+      color: #ffffff;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0097a7;
+    }
+
+    #output {
+      font-size: 5em;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Countdown Timer</h1>
+  <input type="datetime-local" id="datetimeInput">
+  <button onclick="startCountdown()">Start Countdown</button>
+  <div id="output"></div>
+
+  <script>
+    let countdownInterval;
+
+    function startCountdown() {
+      clearInterval(countdownInterval);
+      const input = document.getElementById("datetimeInput").value;
+      const targetDate = new Date(input);
+      const now = new Date();
+
+      if (targetDate <= now) {
+        document.getElementById("output").innerText = "Please enter a future date and time.";
+        return;
+      }
+
+      countdownInterval = setInterval(() => {
+        const now = new Date();
+        const timeLeft = targetDate - now;
+
+        if (timeLeft <= 0) {
+          clearInterval(countdownInterval);
+          document.getElementById("output").innerText = "Time's up!";
+          return;
+        }
+
+        const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((timeLeft / (1000 * 60 * 60)) % 24);
+        const minutes = Math.floor((timeLeft / (1000 * 60)) % 60);
+        const seconds = Math.floor((timeLeft / 1000) % 60);
+
+        document.getElementById("output").innerText =
+          `Time left: ${days}d ${hours}h ${minutes}m ${seconds}s`;
+      }, 1000);
+    }
+  </script>
+</body>
+</html>
