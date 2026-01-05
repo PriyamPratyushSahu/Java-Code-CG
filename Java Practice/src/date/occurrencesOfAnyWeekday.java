@@ -32,43 +32,47 @@ public class occurrencesOfAnyWeekday {
         int month;
         DayOfWeek targetDay;
         //Enter choice
-        System.out.print("Press 1 for custom day\nPress 2 for default day\nEnter your choice: ");
-        int ch = scanner.nextInt();
-        if (ch == 1) {
-            // Input year, month, and weekday
-            System.out.print("Enter year (e.g., 2025): ");
-            year = scanner.nextInt();
+        int ch;
 
-            System.out.print("Enter month (1-12): ");
-            month = scanner.nextInt();
+        do {
+            System.out.print("Press 1 for custom day\nPress 2 for default day\nEnter your choice: ");
+            ch = scanner.nextInt();
+            if (ch == 1) {
+                // Input year, month, and weekday
+                System.out.print("Enter year (e.g., 2025): ");
+                year = scanner.nextInt();
 
-            System.out.print("Enter weekday (e.g., MONDAY, TUESDAY): ");
-            String weekdayInput = scanner.next().toUpperCase();
-            targetDay = DayOfWeek.valueOf(weekdayInput);
+                System.out.print("Enter month (1-12): ");
+                month = scanner.nextInt();
 
-            ow.displayWeekDays(year,month,targetDay);
+                System.out.print("Enter weekday (e.g., MONDAY, TUESDAY): ");
+                String weekdayInput = scanner.next().toUpperCase();
+                targetDay = DayOfWeek.valueOf(weekdayInput);
 
-        }
-        else if(ch == 2){
-            String format;
-            SimpleDateFormat sdf;
-            Date d = new Date();
+                ow.displayWeekDays(year, month, targetDay);
 
-            format = "y";
-            sdf = new SimpleDateFormat(format);
-            year = Integer.parseInt(sdf.format(d));
+            } else if (ch == 2) {
+                String format;
+                SimpleDateFormat sdf;
+                Date d = new Date();
 
-            format = "M";
-            sdf = new SimpleDateFormat(format);
-            month = Integer.parseInt(sdf.format(d));
+                format = "y";
+                sdf = new SimpleDateFormat(format);
+                year = Integer.parseInt(sdf.format(d));
 
-            LocalDate currentdate = LocalDate.now();
-            targetDay = currentdate.getDayOfWeek();
-            System.out.println(targetDay);
+                format = "M";
+                sdf = new SimpleDateFormat(format);
+                month = Integer.parseInt(sdf.format(d));
 
-            ow.displayWeekDays(year,month,targetDay);
-        }
+                LocalDate currentdate = LocalDate.now();
+                targetDay = currentdate.getDayOfWeek();
+                System.out.println(targetDay);
 
+                ow.displayWeekDays(year, month, targetDay);
+            }
+            System.out.println("Press 0 to continue");
+            ch = scanner.nextInt();
+        } while (ch == 0);
         scanner.close();
     }
 }
