@@ -25,8 +25,8 @@ public class CricketScore {
         return  overs;
     }
     void CalculateScore(String Overs[]){
-        for(int i = 0; i < Overs.length; i++){
-            System.out.println(Overs[i]);
+        for(int i = 0,ovr = 1; i < Overs.length; i++,ovr++){
+            System.out.println("Over "+ ovr + ": " +Overs[i]);
             String eachOver[] = Overs[i].split("\\,");
             for(int j = 0; j < eachOver.length; j++){
                 switch(eachOver[j]){
